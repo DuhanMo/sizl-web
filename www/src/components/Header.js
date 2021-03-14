@@ -17,7 +17,7 @@ const Header = () => {
           <Link to="/loginForm" className="nav-link">
             로그인
           </Link>
-          <Link to="/" className="nav-link">
+          <Link to="/SaveForm" className="nav-link">
             글쓰기
           </Link>
         </Nav>

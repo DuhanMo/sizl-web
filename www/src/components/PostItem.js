@@ -5,14 +5,18 @@ import { Link } from 'react-router-dom';
 const PostItem = (props) => {
   const { id, title, author } = props.posts;
   return (
-    <Card>
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Link to={'/post/' + id} className="btn btn-primary">
-          상세보기
-        </Link>
-      </Card.Body>
-    </Card>
+    <div>
+      <Card>
+        <Card.Body>
+          <Card.Title>{title}</Card.Title>
+          <Card.Text>작성자 {author}</Card.Text>
+          <Link to={'/post/' + id} className="btn btn-primary">
+            상세보기
+          </Link>
+        </Card.Body>
+      </Card>
+      <br />
+    </div>
   );
 };
 
