@@ -2,9 +2,6 @@ package com.duhan.sizl.web;
 
 import com.duhan.sizl.domain.posts.Posts;
 import com.duhan.sizl.service.posts.PostsService;
-import com.duhan.sizl.web.dto.PostsResponseDto;
-import com.duhan.sizl.web.dto.PostsSaveRequestDto;
-import com.duhan.sizl.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,24 +14,27 @@ public class PostsApiController {
 
     @CrossOrigin
     @PostMapping("/api/v1/posts")
-    public Long save(@RequestBody PostsSaveRequestDto requestDto) {
-        return postsService.save(requestDto);
+    public ResponseEntity<?> save(@RequestBody Posts posts) {
+        return new ResponseEntity<>(postsService.save(posts), HttpStatus.CREATED); // 200
     }
+
 
     @CrossOrigin
     @PutMapping("/api/v1/posts/{id}")
-    public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
-        return postsService.update(id, requestDto);
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Posts posts) {
+        return new ResponseEntity<>(postsService.update(id, posts), HttpStatus.OK); // 200
     }
 
-    //    @GetMapping("/api/v1/posts/{id}")
-//    public ResponseEntity<?> findById(@PathVariable Long id) {
-//        return new ResponseEntity<>(postsService.findById(id), HttpStatus.OK);
-//    }
+
     @CrossOrigin
     @GetMapping("/api/v1/posts/{id}")
-    public PostsResponseDto findById(@PathVariable Long id) {
-        return postsService.findById(id);
+    public ResponseEntity<?> findById(@PathVariable Long id) {
+        return new ResponseEntity<>(postsService.findById(id), HttpStatus.OK); // 200
+    }
+    @CrossOrigin
+    @DeleteMapping("/api/v1/posts/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable Long id) {
+        return new ResponseEntity<>(postsService.deleteById(id), HttpStatus.OK); // 200
     }
 
 

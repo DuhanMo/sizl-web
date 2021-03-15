@@ -45,20 +45,29 @@ const SaveForm = (props) => {
   return (
     <Form onSubmit={submitPosts}>
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>제목</Form.Label>
         <Form.Control
           type="text"
-          placeholder="Enter Title"
+          placeholder="제목을 입력해주세요."
           onChange={changeValue}
           name="title"
         />
       </Form.Group>
 
       <Form.Group>
-        <Form.Label>Author</Form.Label>
+        <Form.Label>내용</Form.Label>
         <Form.Control
           type="text"
-          placeholder="Enter Author"
+          placeholder="내용을 입력해주세요."
+          onChange={changeValue}
+          name="content"
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>글쓴이</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="글쓴이"
           onChange={changeValue}
           name="author"
         />

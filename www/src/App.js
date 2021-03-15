@@ -1,9 +1,6 @@
 import Header from './components/Header';
 import { Route } from 'react-router';
-import BoardListPage from './pages/BoardListPage';
-import BoardDetailPage from './pages/BoardDetailPage';
-import { useEffect, useState } from 'react';
-import HelloPage from './pages/HelloPage';
+
 import { Container } from 'react-bootstrap';
 import Home from './pages/post/Home';
 import SaveForm from './pages/post/SaveForm';
