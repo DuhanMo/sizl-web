@@ -16,7 +16,7 @@ const SaveForm = (props) => {
   };
 
   const submitPosts = (e) => {
-    e.preventDefault(); // submit이 action을 안타고 자기 할일을 그만함.
+    e.preventDefault();
 
     fetch('http://localhost:8080/api/v1/posts', {
       method: 'POST',
@@ -37,7 +37,7 @@ const SaveForm = (props) => {
         if (res !== null) {
           props.history.push('/');
         } else {
-          alert('책 등록에 실패하였습니다.');
+          alert('게시글 등록에 실패하였습니다.');
         }
       });
   };

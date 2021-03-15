@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Detail = (props) => {
-  console.log('detail', props);
   const id = props.match.params.id;
 
   const [posts, setPosts] = useState({
@@ -21,10 +21,6 @@ const Detail = (props) => {
       });
   }, []);
 
-  // const updateBook = () => {
-  //   props.history.push('/updateForm/' + id);
-  // };
-
   const deletePosts = () => {
     fetch('http://localhost:8080/api/v1/posts/' + id, {
       method: 'DELETE',
@@ -33,6 +29,8 @@ const Detail = (props) => {
       .then((res) => {
         if (res === 'ok') {
           props.history.push('/');
+        } else {
+          alert('삭제 실패');
         }
       });
   };
@@ -40,17 +38,17 @@ const Detail = (props) => {
   return (
     <div>
       <h1>책 상세보기</h1>
-      {/* <Button variant="warning" onClick={updateBook}>
+      <Link to={'/updateForm/' + id} className="btn btn-success">
         수정
-      </Button> */}
+      </Link>
       {'  '}
       <Button variant="danger" onClick={deletePosts}>
         삭제
       </Button>
       <hr />
-      <h1>{posts.title}</h1>
+      <h2>{posts.title}</h2>
       <h3>{posts.author}</h3>
-      <h1>{posts.content}</h1>
+      <h2>{posts.content}</h2>
     </div>
   );
 };
