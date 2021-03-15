@@ -5,8 +5,8 @@ import { Container } from 'react-bootstrap';
 import Home from './pages/post/Home';
 import SaveForm from './pages/post/SaveForm';
 import Detail from './pages/post/Detail';
-import loginForm from './pages/user/loginForm';
-import joinForm from './pages/user/joinForm';
+import LoginForm from './pages/user/LoginForm';
+import JoinForm from './pages/user/JoinForm';
 import UpdateForm from './pages/post/UpdateForm';
 
 function App() {
@@ -16,9 +16,9 @@ function App() {
       <Container>
         <Route path="/" exact={true} component={Home} />
         <Route path="/saveForm" exact={true} component={SaveForm} />
-        <Route path="/post/:id" exact={true} component={Detail} />
-        <Route path="/loginForm" exact={true} component={loginForm} />
-        <Route path="/joinForm" exact={true} component={joinForm} />
+        <Route path="/posts/:id" exact={true} component={Detail} />
+        <Route path="/loginForm" exact={true} component={LoginForm} />
+        <Route path="/joinForm" exact={true} component={JoinForm} />
         <Route path="/updateForm/:id" exact={true} component={UpdateForm} />
       </Container>
     </div>

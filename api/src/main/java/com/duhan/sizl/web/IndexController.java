@@ -19,7 +19,7 @@ public class IndexController {
     private final PostsService postsService;
 
     @CrossOrigin
-    @GetMapping("/posts")
+    @GetMapping("/api/v1/posts")
     public ResponseEntity<?> findAll(){
         return new ResponseEntity<>(postsService.findAll(), HttpStatus.OK);
     }
