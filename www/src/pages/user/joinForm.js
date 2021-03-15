@@ -1,6 +1,6 @@
 import React from 'react';
 
-const joinForm = () => {
+const JoinForm = () => {
   return (
     <div>
       <h1>회원가입 폼</h1>
@@ -8,4 +8,4 @@ const joinForm = () => {
   );
 };
 
-export default joinForm;
+export default JoinForm;

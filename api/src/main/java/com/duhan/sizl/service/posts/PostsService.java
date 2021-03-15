@@ -29,7 +29,7 @@ public class PostsService {
         return postsEntity;
     }
 
-    @Transactional(readOnly = true) // JPA 변경감지라는 내부 기능 활성화 X, update시의 정합성을 유지해줌. insert의 유령데이터현상(팬텀현상) 못막음.
+    @Transactional(readOnly = true)
     public Posts findById(Long id) {
         return postsRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("id를 확인해주세요!!"));
@@ -37,7 +37,7 @@ public class PostsService {
 
     @Transactional
     public String deleteById(Long id) {
-        postsRepository.deleteById(id); // 오류가 터지면 익셉션을 타니까.. 신경쓰지 말고
+        postsRepository.deleteById(id);
         return "ok";
     }
     @Transactional(readOnly = true)

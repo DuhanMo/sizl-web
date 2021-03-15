@@ -1,6 +1,6 @@
 import React from 'react';
 
-const loginForm = () => {
+const LoginForm = () => {
   return (
     <div>
       <h1>로그인 창</h1>
@@ -8,4 +8,4 @@ const loginForm = () => {
   );
 };
 
-export default loginForm;
+export default LoginForm;

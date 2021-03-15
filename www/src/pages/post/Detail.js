@@ -21,34 +21,32 @@ const Detail = (props) => {
       });
   }, []);
 
-  // const deleteBook = () => {
-  //   fetch('http://localhost:8080/posts/' + id, {
-  //     method: 'DELETE',
-  //   })
-  //     .then((res) => res.text())
-  //     .then((res) => {
-  //       if (res === 'ok') {
-  //         props.history.push('/');
-  //       } else {
-  //         alert('삭제실패');
-  //       }
-  //     });
-  // };
-
   // const updateBook = () => {
   //   props.history.push('/updateForm/' + id);
   // };
+
+  const deletePosts = () => {
+    fetch('http://localhost:8080/api/v1/posts/' + id, {
+      method: 'DELETE',
+    })
+      .then((res) => res.text())
+      .then((res) => {
+        if (res === 'ok') {
+          props.history.push('/');
+        }
+      });
+  };
 
   return (
     <div>
       <h1>책 상세보기</h1>
       {/* <Button variant="warning" onClick={updateBook}>
         수정
-      </Button>
-      {'  '}
-      <Button variant="danger" onClick={deleteBook}>
-        삭제
       </Button> */}
+      {'  '}
+      <Button variant="danger" onClick={deletePosts}>
+        삭제
+      </Button>
       <hr />
       <h1>{posts.title}</h1>
       <h3>{posts.author}</h3>
