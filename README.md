@@ -9,6 +9,8 @@ sizl job test
 - Devtools
 - lombok
 - MySQL
+- security
+- jjwt
 
 ### front-end : React
 - yarn add react-router-dom
