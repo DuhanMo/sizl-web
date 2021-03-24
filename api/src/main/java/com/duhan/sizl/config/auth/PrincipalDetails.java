@@ -1,22 +1,30 @@
-package com.duhan.jwt.config.auth;
-import com.duhan.jwt.model.User;
-import java.util.ArrayList;
-import java.util.Collection;
+package com.duhan.sizl.config.auth;
 
+import com.duhan.sizl.domain.user.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
+import java.util.Collection;
 
-public class PrincipalDetails implements UserDetails{
+public class PrincipalDetails implements UserDetails {
 
     private User user;
+
+    public User getUser() {
+        return user;
+    }
 
     public PrincipalDetails(User user){
         this.user = user;
     }
-
-    public User getUser() {
-        return user;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        user.getRoleList().forEach(r -> {
+            authorities.add(()->{ return r;});
+        });
+        return authorities;
     }
 
     @Override
@@ -47,14 +55,5 @@ public class PrincipalDetails implements UserDetails{
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-        user.getRoleList().forEach(r -> {
-            authorities.add(()->{ return r;});
-        });
-        return authorities;
     }
 }

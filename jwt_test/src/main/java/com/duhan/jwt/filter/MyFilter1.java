@@ -18,5 +18,4 @@ public class MyFilter1 implements Filter {
 
 
     }
-
 }

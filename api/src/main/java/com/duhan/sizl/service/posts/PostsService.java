@@ -18,33 +18,7 @@ import java.util.stream.Collectors;
 public class PostsService {
     private final PostsRepository postsRepository;
 
-    // DTO 사용 : 삭제, 한건찾기, 저장
-//    남은거 : 리스트 뽑아오기, 업데이트
 
-//    @Transactional
-//    public Posts save(Posts posts) {
-//        return postsRepository.save(posts);
-//    }
-
-    //    @Transactional(readOnly = true)
-//    public Posts findById(Long id) {
-//        return postsRepository.findById(id)
-//                .orElseThrow(()->new IllegalArgumentException("id를 확인해주세요!!"));
-//    }
-
-    //    @Transactional
-//    public Posts update(Long id, Posts posts) {
-//        Posts postsEntity = postsRepository.findById(id)
-//                .orElseThrow(()->new IllegalArgumentException("id를 확인해주세요!!")); //
-//        postsEntity.setTitle(posts.getTitle());
-//        postsEntity.setAuthor(posts.getAuthor());
-//        return postsEntity;
-//    }
-
-//    @Transactional(readOnly = true)
-//    public List<Posts> findAll() {
-//        return postsRepository.findAll();
-//    }
     @Transactional
     public Long save(PostsSaveRequestDto requestsDto) {
         return postsRepository.save(requestsDto.toEntity()).getId();

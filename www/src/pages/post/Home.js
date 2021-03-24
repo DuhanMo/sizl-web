@@ -6,7 +6,7 @@ const Home = () => {
 
   // 함수 실행시 최초 한번 실행되는 것 + 상태값이 변경될때마다 실행
   useEffect(() => {
-    fetch('http://localhost:8080/api/v1/posts')
+    fetch('http://localhost:8080/')
       .then((res) => res.json())
       .then((res) => {
         setPosts(res);

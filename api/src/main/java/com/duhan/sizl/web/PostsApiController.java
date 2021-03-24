@@ -21,16 +21,6 @@ public class PostsApiController {
     }
 
 
-//    @CrossOrigin
-//    @PutMapping("/api/v1/posts/{id}")
-//    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Posts posts) {
-//        return new ResponseEntity<>(postsService.update(id, posts), HttpStatus.OK);
-//    }
-//    @PutMapping("/api/v1/posts/{id}")
-//    public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
-//        return postsService.update(id, requestDto);
-//    }
-
     @CrossOrigin
     @PutMapping("/api/v1/posts/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
@@ -43,6 +33,7 @@ public class PostsApiController {
 
         return new ResponseEntity<>(postsService.findById(id), HttpStatus.OK);
     }
+
     @CrossOrigin
     @DeleteMapping("/api/v1/posts/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {

@@ -1,18 +1,17 @@
-package com.duhan.jwt.config.auth;
+package com.duhan.sizl.config.auth;
 
-import com.duhan.jwt.model.User;
-import com.duhan.jwt.repository.UserRepository;
+
+import com.duhan.sizl.domain.user.User;
+import com.duhan.sizl.domain.user.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-
-import lombok.RequiredArgsConstructor;
-
 @Service
 @RequiredArgsConstructor
-public class PrincipalDetailsService implements UserDetailsService{
+public class PrincipalDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
