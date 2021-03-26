@@ -11,10 +11,10 @@ const Header = () => {
           홈
         </Link>
         <Nav className="mr-auto">
-          <Link to="/joinForm" className="nav-link">
+          <Link to="/register" className="nav-link">
             회원가입
           </Link>
-          <Link to="/loginForm" className="nav-link">
+          <Link to="/login" className="nav-link">
             로그인
           </Link>
           <Link to="/SaveForm" className="nav-link">

@@ -14,27 +14,27 @@ import org.springframework.web.bind.annotation.*;
 public class PostsApiController {
     private final PostsService postsService;
 
-    @CrossOrigin
+//    @CrossOrigin
     @PostMapping("/api/v1/posts")
     public ResponseEntity<?> save(@RequestBody PostsSaveRequestDto requestsDto) {
         return new ResponseEntity<>(postsService.save(requestsDto), HttpStatus.CREATED);
     }
 
 
-    @CrossOrigin
+//    @CrossOrigin
     @PutMapping("/api/v1/posts/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
         return new ResponseEntity<>(postsService.update(id, requestDto), HttpStatus.OK);
     }
 
-    @CrossOrigin
+//    @CrossOrigin
     @GetMapping("/api/v1/posts/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
 
         return new ResponseEntity<>(postsService.findById(id), HttpStatus.OK);
     }
 
-    @CrossOrigin
+//    @CrossOrigin
     @DeleteMapping("/api/v1/posts/{id}")
     public ResponseEntity<?> deleteById(@PathVariable Long id) {
         return new ResponseEntity<>(postsService.deleteById(id), HttpStatus.OK);

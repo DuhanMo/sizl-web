@@ -18,7 +18,7 @@ import java.util.Date;
 public class IndexController {
     private final PostsService postsService;
 
-    @CrossOrigin
+//    @CrossOrigin
     @GetMapping("/")
     public ResponseEntity<?> findAllDesc(){
         return new ResponseEntity<>(postsService.findAllDesc(), HttpStatus.OK);

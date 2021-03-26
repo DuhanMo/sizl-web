@@ -19,8 +19,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private CorsConfig corsConfig;
+//    @Autowired
+//    private CorsConfig corsConfig;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .addFilter(corsConfig.corsFilter())
+//                .addFilter(corsConfig.corsFilter())
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
@@ -40,8 +40,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
                 .addFilter(new JwtAuthorizationFilter(authenticationManager(), userRepository))
                 .authorizeRequests()
-                .antMatchers("/api/v1/posts/**")
-                .access("hasRole('ROLE_USER') or hasRole('ROLE_GUEST')")
+//                .antMatchers("/api/v1/posts/**")
+//                .access("hasRole('ROLE_USER') or hasRole('ROLE_GUEST')")
                 .anyRequest().permitAll();
     }
 }
